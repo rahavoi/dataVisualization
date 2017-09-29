@@ -1,0 +1,36 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+</head>
+<body>
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<script type="text/javascript">
+    var p = d3.select("body").selectAll("p")
+      .data(["Hello, World!", "Sweet dreams!"])
+      .text(function(d) { return d; });
+
+      p.enter().append("p")
+        .text(function(d) { return d; })
+        .style("color", "white");
+
+      d3.select("body").transition().duration(2000)
+      .delay(1000)
+      .style("background-color", "black");
+
+
+      d3.selectAll("p")
+        .transition()
+        .ease(d3.easeBounce)
+        .duration(2000)
+        .delay(4000)
+        .style("padding-left", "200px")
+        .transition()
+        .duration(3000)
+        .ease(d3.easeCircle)
+        .style("color", "black");
+
+</script>
+</body>
+</html>
